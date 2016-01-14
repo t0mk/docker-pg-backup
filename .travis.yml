@@ -1,8 +1,5 @@
-install:
-  - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
-  - curl -sSL https://get.docker.com/ | sudo sh
-  - sudo pip install docker-compose
-
+sudo: required
+dist: trusty
 
 script:
   - ls -lah
@@ -14,10 +11,7 @@ script:
   - ls -lah backups/*
   - if [[ ! -f "backups/2012/June/foo.dmp" ]]; then exit 1; fi
 notifications:
-  irc:
-    channels:
-      - "irc.freenode.org#inasafe"
-    use_notice: true
-
+      flowdock:
+              secure: 4681cffa3cf2cd5b918706b115f0ce8a
   email:
-    - tim@kartoza.com
+    - tom.to.the.k@gmail.com
